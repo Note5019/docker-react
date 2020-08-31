@@ -1,0 +1,10 @@
+sudi: required
+services:
+  - docker
+
+before_install:
+  - docker build -t note5019/docker-react -f Dockerfilde.dev .
+
+  #docker run -e CI=true USERNAME/docker-react npm run test
+script:
+  - docker run note5019/docker-react npm run test -- --coverage
